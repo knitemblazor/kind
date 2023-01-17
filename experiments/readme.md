@@ -3,7 +3,7 @@
 
 #### create kind cluster
 
-'''console
+''' console
 cat <<EOF | kind create cluster --config=-
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
