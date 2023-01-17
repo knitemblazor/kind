@@ -1,5 +1,28 @@
 ## setting up a gateway 
 
+
+#### create kind cluster
+
+cat <<EOF | kind create cluster --config=-
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane
+  kubeadmConfigPatches:
+  - |
+    kind: InitConfiguration
+    nodeRegistration:
+      kubeletExtraArgs:
+        node-labels: "ingress-ready=true"
+  extraPortMappings:
+  - containerPort: 80
+    hostPort: 80
+    protocol: TCP
+  - containerPort: 443
+    hostPort: 443
+    protocol: TCP
+EOF
+
 #### install istio 
 
 istio version = 1.15.0
@@ -39,4 +62,6 @@ $ export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT
 $ curl -s "http://${GATEWAY_URL}/productpage" | grep -o "<title>.*</title>"
 
 
-#### set up using a default webapp
+#### set up nginx ingress
+
+$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
