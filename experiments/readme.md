@@ -84,9 +84,10 @@ nodes:
 EOF
 ```
 
+```console
+
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
 
-```console
 NAMESPACE            NAME                                         READY   STATUS      RESTARTS   AGE
 ingress-nginx        ingress-nginx-admission-create-jqfpv         0/1     Completed   0          54m
 ingress-nginx        ingress-nginx-admission-patch-hlqp9          0/1     Completed   0          54m
