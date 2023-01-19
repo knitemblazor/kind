@@ -6,7 +6,7 @@ $ kind create cluster
 
 using istio version = 1.15.0
 
-*the demo profile has ingress enabled - need to explore more *
+*the demo profile has ingress enabled - need to explore more*
 
 $ istioctl install --set profile=demo -y
 
