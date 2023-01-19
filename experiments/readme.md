@@ -71,7 +71,7 @@ EOF
 
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
 
-
+```console
 NAMESPACE            NAME                                         READY   STATUS      RESTARTS   AGE
 ingress-nginx        ingress-nginx-admission-create-jqfpv         0/1     Completed   0          54m
 ingress-nginx        ingress-nginx-admission-patch-hlqp9          0/1     Completed   0          54m
@@ -85,4 +85,5 @@ kube-system          kube-controller-manager-kind-control-plane   1/1     Runnin
 kube-system          kube-proxy-qfx6z                             1/1     Running     0          57m
 kube-system          kube-scheduler-kind-control-plane            1/1     Running     0          57m
 local-path-storage   local-path-provisioner-684f458cdd-qbt2w      1/1     Running     0          57m
+```
 
