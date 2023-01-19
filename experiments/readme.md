@@ -1,32 +1,9 @@
-## setting up a gateway 
+#### install istio in kind
 
+$ kind create cluster
 
-#### create kind cluster
-
-```console
-cat <<EOF | kind create cluster --config=-
-kind: Cluster
-apiVersion: kind.x-k8s.io/v1alpha4
-nodes:
-- role: control-plane
-  kubeadmConfigPatches:
-  - |
-    kind: InitConfiguration
-    nodeRegistration:
-      kubeletExtraArgs:
-        node-labels: "ingress-ready=true"
-  extraPortMappings:
-  - containerPort: 80
-    hostPort: 80
-    protocol: TCP
-  - containerPort: 443
-    hostPort: 443
-    protocol: TCP
-EOF
-```
-#### install istio 
-
-istio version = 1.15.0
+creating kind cluster with "ingress-ready=true" causes istio installation to fail
+using istio version = 1.15.0
 
 the demo profile has ingress enabled - need to explore more
 $ istioctl install --set profile=demo -y
@@ -64,5 +41,29 @@ $ curl -s "http://${GATEWAY_URL}/productpage" | grep -o "<title>.*</title>"
 
 
 #### set up nginx ingress
+
+creating kind cluster without ingress-ready leads to failing nginx pod initialization
+
+```console
+cat <<EOF | kind create cluster --config=-
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane
+  kubeadmConfigPatches:
+  - |
+    kind: InitConfiguration
+    nodeRegistration:
+      kubeletExtraArgs:
+        node-labels: "ingress-ready=true"
+  extraPortMappings:
+  - containerPort: 80
+    hostPort: 80
+    protocol: TCP
+  - containerPort: 443
+    hostPort: 443
+    protocol: TCP
+EOF
+```
 
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
