@@ -44,7 +44,7 @@ $ curl -s "http://${GATEWAY_URL}/productpage" | grep -o "<title>.*</title>"
 
 #### <ins> set up nginx ingress </ins>
 
-* creating kind cluster without ingress-ready leads to failing nginx pod initialization *
+ *creating kind cluster without ingress-ready leads to failing nginx pod initialization*
 
 ```console
 cat <<EOF | kind create cluster --config=-
