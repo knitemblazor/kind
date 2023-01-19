@@ -8,7 +8,7 @@ $ kind create cluster
 $ kubectl create -f https://raw.githubusercontent.com/keycloak/keycloak-quickstarts/latest/kubernetes-examples/keycloak.yaml
 ```
 
-ymal contents
+yaml contents
 
 ```console 
 apiVersion: v1
