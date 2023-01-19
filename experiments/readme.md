@@ -2,10 +2,12 @@
 
 $ kind create cluster
 
-*creating kind cluster with "ingress-ready=true" causes istio installation to fail* /
+*creating kind cluster with "ingress-ready=true" causes istio installation to fail* \
+
 using istio version = 1.15.0
 
-the demo profile has ingress enabled - need to explore more
+the demo profile has ingress enabled - need to explore more \
+
 $ istioctl install --set profile=demo -y
 
 $ kubectl get services
