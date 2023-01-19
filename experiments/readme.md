@@ -3,10 +3,6 @@
 *creating kind cluster with "ingress-ready=true" causes istio installation to fail*
 
 ```console 
-
-```
-
-```console 
 $ kind create cluster
 ```
 using istio version = 1.15.0
