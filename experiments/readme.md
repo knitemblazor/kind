@@ -2,7 +2,7 @@
 
 $ kind create cluster
 
-*creating kind cluster with "ingress-ready=true" causes istio installation to fail* \
+*creating kind cluster with "ingress-ready=true" causes istio installation to fail*
 
 using istio version = 1.15.0
 
@@ -42,9 +42,9 @@ $ export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT
 $ curl -s "http://${GATEWAY_URL}/productpage" | grep -o "<title>.*</title>"
 
 
-#### set up nginx ingress
+#### <ins> set up nginx ingress </ins>
 
-creating kind cluster without ingress-ready leads to failing nginx pod initialization
+* creating kind cluster without ingress-ready leads to failing nginx pod initialization *
 
 ```console
 cat <<EOF | kind create cluster --config=-
