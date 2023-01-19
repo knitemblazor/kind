@@ -6,7 +6,7 @@ $ kind create cluster
 
 using istio version = 1.15.0
 
-the demo profile has ingress enabled - need to explore more \
+*the demo profile has ingress enabled - need to explore more *
 
 $ istioctl install --set profile=demo -y
 
@@ -17,6 +17,7 @@ $ kubectl get pods
 $ kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
 
 check if the application is up and running
+
 $ kubectl exec "$(kubectl get pod -l app=ratings -o jsonpath='{.items[0].metadata.name}')" -c ratings -- curl -sS productpage:9080/productpage | grep -o "<title>.*</title>"
 
 #### Open the application to outside traffic
